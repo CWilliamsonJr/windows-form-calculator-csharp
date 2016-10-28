@@ -11,11 +11,10 @@ using System.Windows.Forms;
 
 namespace Calculator
 {
-    public partial class formCalculator : Form
+    public partial class FormCalculator : Form
     {
-       private List<string> Calculations = new List<string>();
-
-        public formCalculator()
+      
+        public FormCalculator()
         {
             InitializeComponent();
         }
@@ -40,26 +39,7 @@ namespace Calculator
             DisplayNumbers("4");
         }
 
-        private void DisplayNumbers(string number)
-        {
-
-
-            if (true)
-            {
-                if (String.IsNullOrEmpty(lblDisplay.Text))
-                {
-                    lblDisplay.Text = number;
-                    Calculations.Add(number);
-                }
-                else
-                {
-                    lblDisplay.Text += number;
-                    Calculations.Add(number);
-                }
-            }
-            
-            
-        }
+        
 
         private void btnFive_Click(object sender, EventArgs e)
         {
@@ -88,7 +68,63 @@ namespace Calculator
 
         private void btnClear_MouseHover(object sender, EventArgs e)
         {
+            
+        }
 
+        private void btnBackspace_Click(object sender, EventArgs e)
+        {
+            if (lblDisplay.Text.Length >= 1)
+            {
+                lblDisplay.Text = lblDisplay.Text.Remove(lblDisplay.Text.Length - 1);
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e) // clears everything
+        {
+            lblDisplay.Text = "";
+        }
+
+        private void btnClearEntry_Click(object sender, EventArgs e) // clears what's on screen
+        {
+            lblDisplay.Text = "";
+        }
+
+        private void btnPlus_Click(object sender, EventArgs e)
+        {
+
+
+            if (String.IsNullOrEmpty(firstNumber) && String.IsNullOrEmpty(secondNumber))
+            {
+                if (String.IsNullOrEmpty(firstNumber))
+                {
+                    firstNumber = lblDisplay.Text;
+                }
+                else
+                {
+                    secondNumber = lblDisplay.Text;
+                }
+            }
+            else
+            {
+                
+            }
+
+            mathOperator = '+';
+        }
+
+        private void btnPlusMinus_Click(object sender, EventArgs e)
+        {
+            var temp = Convert.ToDouble(lblDisplay.Text);
+            if (numIsNegative || temp <= 0) // testing if negative is was already added or the number itself is negative
+            {
+                lblDisplay.Text = Convert.ToString(Math.Abs(temp)); // converts negative number back to positive
+                numIsNegative = false;
+            }
+            else
+            {
+                numIsNegative = true;
+                lblDisplay.Text = negative + lblDisplay.Text; // makes number negative
+            }
         }
     }
 }
