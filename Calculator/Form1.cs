@@ -8,12 +8,13 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NCalc;
 
 namespace Calculator
 {
     public partial class FormCalculator : Form
     {
-      
+
         public FormCalculator()
         {
             InitializeComponent();
@@ -39,7 +40,7 @@ namespace Calculator
             DisplayNumbers("4");
         }
 
-        
+
 
         private void btnFive_Click(object sender, EventArgs e)
         {
@@ -68,7 +69,7 @@ namespace Calculator
 
         private void btnClear_MouseHover(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnBackspace_Click(object sender, EventArgs e)
@@ -91,40 +92,31 @@ namespace Calculator
 
         private void btnPlus_Click(object sender, EventArgs e)
         {
-
-
-            if (String.IsNullOrEmpty(firstNumber) && String.IsNullOrEmpty(secondNumber))
-            {
-                if (String.IsNullOrEmpty(firstNumber))
-                {
-                    firstNumber = lblDisplay.Text;
-                }
-                else
-                {
-                    secondNumber = lblDisplay.Text;
-                }
-            }
-            else
-            {
-                
-            }
-
-            mathOperator = '+';
+            _mathOperator = '+';
+            Temp(_mathOperator);
+            lblDisplay.Text = "";
         }
 
         private void btnPlusMinus_Click(object sender, EventArgs e)
         {
             var temp = Convert.ToDouble(lblDisplay.Text);
-            if (numIsNegative || temp <= 0) // testing if negative is was already added or the number itself is negative
+            if (_numIsNegative || temp <= 0) // testing if negative is was already added or the number itself is negative
             {
                 lblDisplay.Text = Convert.ToString(Math.Abs(temp)); // converts negative number back to positive
-                numIsNegative = false;
+                _numIsNegative = false;
             }
             else
             {
-                numIsNegative = true;
-                lblDisplay.Text = negative + lblDisplay.Text; // makes number negative
+                _numIsNegative = true;
+                lblDisplay.Text = _negative + lblDisplay.Text; // makes number negative
             }
+        }
+
+        private void btnEqual_Click(object sender, EventArgs e)
+        {
+            calculation += lblDisplay.Text;
+            Expression result = new Expression(calculation);
+            lblDisplay.Text = result.Evaluate().ToString();
         }
     }
 }

@@ -378,6 +378,7 @@
             this.btnEqual.TabIndex = 1;
             this.btnEqual.Text = "=";
             this.btnEqual.UseVisualStyleBackColor = false;
+            this.btnEqual.Click += new System.EventHandler(this.btnEqual_Click);
             this.btnEqual.MouseHover += new System.EventHandler(this.btnClear_MouseHover);
             // 
             // btnPlusMinus
