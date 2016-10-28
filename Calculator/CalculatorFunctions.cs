@@ -1,24 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NCalc;
+
 
 
 namespace Calculator
 {
     public partial class FormCalculator
     {
-        private string firstNumber;
-        private string secondNumber;
-        private string calculation;
-        private const char _negative = '-';
+        private string _lastNumberEntered = String.Empty;
+        private string _calculation;
+        private const char Negative = '-';
         private char _mathOperator;
         private bool _numIsNegative = false;
 
-        private void DisplayNumbers(string number)
+       private void DisplayText(string number)
         {
             if (String.IsNullOrEmpty(lblDisplay.Text))
             {
@@ -27,21 +21,27 @@ namespace Calculator
             }
             else
             {
-                lblDisplay.Text += number;
-
+                var strTemp = lblDisplay.Text;
+                double numTemp;
+               
+                strTemp += number;
+                numTemp = Convert.ToDouble(strTemp);
+                // TODO: add format string for commas and decmail
+                lblDisplay.Text = numTemp.ToString();
             }
         }
 
-        private void Temp(char mathOperator)
+        private void AddToCalculation(string mathOperator)
         {
-            if (String.IsNullOrEmpty(calculation))
+            if (String.IsNullOrEmpty(_calculation))
             {
-                calculation = lblDisplay.Text + " " + mathOperator + " ";
+                _calculation = lblDisplay.Text + " " + mathOperator + " ";
             }
             else
             {
-                calculation += lblDisplay.Text + " " + mathOperator + " ";
+                _calculation += lblDisplay.Text + " " + mathOperator + " ";
             }
+            lblDisplay.Text = "";
         }
     }
 }

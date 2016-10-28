@@ -50,12 +50,17 @@
             this.btnEqual = new System.Windows.Forms.Button();
             this.btnPlusMinus = new System.Windows.Forms.Button();
             this.lblDisplay = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.currentOperation = new System.Windows.Forms.Label();
             this.pnlButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlButtons
             // 
+            this.pnlButtons.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlButtons.AutoSize = true;
+            this.pnlButtons.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pnlButtons.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pnlButtons.Controls.Add(this.btnClear);
             this.pnlButtons.Controls.Add(this.btnBackspace);
@@ -77,30 +82,35 @@
             this.pnlButtons.Controls.Add(this.btnDecimal);
             this.pnlButtons.Controls.Add(this.btnEqual);
             this.pnlButtons.Controls.Add(this.btnPlusMinus);
-            this.pnlButtons.Location = new System.Drawing.Point(-1, 137);
+            this.pnlButtons.Location = new System.Drawing.Point(0, 143);
             this.pnlButtons.Name = "pnlButtons";
-            this.pnlButtons.Size = new System.Drawing.Size(226, 297);
+            this.pnlButtons.Size = new System.Drawing.Size(221, 292);
             this.pnlButtons.TabIndex = 0;
             // 
             // btnClear
             // 
+            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnClear.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnClear.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClear.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(62, 1);
+            this.btnClear.Location = new System.Drawing.Point(62, 3);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(48, 53);
             this.btnClear.TabIndex = 19;
             this.btnClear.Text = "C";
             this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            this.btnClear.MouseHover += new System.EventHandler(this.btnClear_MouseHover);
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click_1);
             // 
             // btnBackspace
             // 
+            this.btnBackspace.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnBackspace.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnBackspace.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnBackspace.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBackspace.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnBackspace.FlatAppearance.BorderSize = 0;
             this.btnBackspace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -116,7 +126,10 @@
             // 
             // btnDivide
             // 
+            this.btnDivide.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDivide.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnDivide.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnDivide.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDivide.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnDivide.FlatAppearance.BorderSize = 0;
             this.btnDivide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -127,11 +140,15 @@
             this.btnDivide.TabIndex = 17;
             this.btnDivide.Text = "÷";
             this.btnDivide.UseVisualStyleBackColor = false;
+            this.btnDivide.Click += new System.EventHandler(this.btnDivide_Click);
             this.btnDivide.MouseHover += new System.EventHandler(this.btnClear_MouseHover);
             // 
             // btnClearEntry
             // 
+            this.btnClearEntry.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnClearEntry.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnClearEntry.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnClearEntry.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClearEntry.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnClearEntry.FlatAppearance.BorderSize = 0;
             this.btnClearEntry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -147,7 +164,10 @@
             // 
             // bnEight
             // 
+            this.bnEight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.bnEight.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.bnEight.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.bnEight.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bnEight.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.bnEight.FlatAppearance.BorderSize = 0;
             this.bnEight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -163,7 +183,10 @@
             // 
             // btnNine
             // 
+            this.btnNine.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnNine.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnNine.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnNine.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNine.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnNine.FlatAppearance.BorderSize = 0;
             this.btnNine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -179,7 +202,10 @@
             // 
             // btnMultiply
             // 
+            this.btnMultiply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnMultiply.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnMultiply.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnMultiply.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMultiply.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnMultiply.FlatAppearance.BorderSize = 0;
             this.btnMultiply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -190,11 +216,15 @@
             this.btnMultiply.TabIndex = 13;
             this.btnMultiply.Text = "x";
             this.btnMultiply.UseVisualStyleBackColor = false;
+            this.btnMultiply.Click += new System.EventHandler(this.btnMultiply_Click);
             this.btnMultiply.MouseHover += new System.EventHandler(this.btnClear_MouseHover);
             // 
             // btnSeven
             // 
+            this.btnSeven.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSeven.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnSeven.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnSeven.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSeven.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnSeven.FlatAppearance.BorderSize = 0;
             this.btnSeven.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -210,7 +240,10 @@
             // 
             // btnFive
             // 
+            this.btnFive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnFive.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnFive.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnFive.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFive.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnFive.FlatAppearance.BorderSize = 0;
             this.btnFive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -226,7 +259,10 @@
             // 
             // btnSix
             // 
+            this.btnSix.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSix.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnSix.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnSix.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSix.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnSix.FlatAppearance.BorderSize = 0;
             this.btnSix.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -242,7 +278,10 @@
             // 
             // btnMinus
             // 
+            this.btnMinus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnMinus.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnMinus.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnMinus.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMinus.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnMinus.FlatAppearance.BorderSize = 0;
             this.btnMinus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -253,11 +292,15 @@
             this.btnMinus.TabIndex = 9;
             this.btnMinus.Text = "-";
             this.btnMinus.UseVisualStyleBackColor = false;
+            this.btnMinus.Click += new System.EventHandler(this.btnMinus_Click);
             this.btnMinus.MouseHover += new System.EventHandler(this.btnClear_MouseHover);
             // 
             // btnFour
             // 
+            this.btnFour.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnFour.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnFour.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnFour.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFour.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnFour.FlatAppearance.BorderSize = 0;
             this.btnFour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -273,7 +316,10 @@
             // 
             // btnTwo
             // 
+            this.btnTwo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnTwo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnTwo.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnTwo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTwo.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnTwo.FlatAppearance.BorderSize = 0;
             this.btnTwo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -289,7 +335,10 @@
             // 
             // btnThree
             // 
+            this.btnThree.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnThree.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnThree.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnThree.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnThree.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnThree.FlatAppearance.BorderSize = 0;
             this.btnThree.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -305,7 +354,10 @@
             // 
             // btnPlus
             // 
+            this.btnPlus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnPlus.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnPlus.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnPlus.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPlus.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnPlus.FlatAppearance.BorderSize = 0;
             this.btnPlus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -321,7 +373,10 @@
             // 
             // btnOne
             // 
+            this.btnOne.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnOne.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnOne.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnOne.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOne.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnOne.FlatAppearance.BorderSize = 0;
             this.btnOne.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -337,7 +392,10 @@
             // 
             // btnZero
             // 
+            this.btnZero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnZero.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnZero.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnZero.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnZero.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnZero.FlatAppearance.BorderSize = 0;
             this.btnZero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -352,7 +410,10 @@
             // 
             // btnDecimal
             // 
+            this.btnDecimal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDecimal.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnDecimal.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnDecimal.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDecimal.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnDecimal.FlatAppearance.BorderSize = 0;
             this.btnDecimal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -363,13 +424,19 @@
             this.btnDecimal.TabIndex = 2;
             this.btnDecimal.Text = ".";
             this.btnDecimal.UseVisualStyleBackColor = false;
+            this.btnDecimal.Click += new System.EventHandler(this.btnDecimal_Click);
             this.btnDecimal.MouseHover += new System.EventHandler(this.btnClear_MouseHover);
             // 
             // btnEqual
             // 
+            this.btnEqual.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnEqual.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnEqual.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnEqual.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEqual.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnEqual.FlatAppearance.BorderSize = 0;
+            this.btnEqual.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnEqual.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
             this.btnEqual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEqual.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEqual.Location = new System.Drawing.Point(170, 236);
@@ -383,7 +450,10 @@
             // 
             // btnPlusMinus
             // 
+            this.btnPlusMinus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnPlusMinus.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnPlusMinus.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnPlusMinus.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPlusMinus.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnPlusMinus.FlatAppearance.BorderSize = 0;
             this.btnPlusMinus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -406,28 +476,29 @@
             this.lblDisplay.TabIndex = 1;
             this.lblDisplay.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // label1
+            // currentOperation
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label1.Location = new System.Drawing.Point(5, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(213, 23);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
+            this.currentOperation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentOperation.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.currentOperation.Location = new System.Drawing.Point(5, 9);
+            this.currentOperation.Name = "currentOperation";
+            this.currentOperation.Size = new System.Drawing.Size(213, 23);
+            this.currentOperation.TabIndex = 2;
+            this.currentOperation.Tag = "current Operation";
             // 
             // FormCalculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(226, 435);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.currentOperation);
             this.Controls.Add(this.lblDisplay);
             this.Controls.Add(this.pnlButtons);
             this.Name = "FormCalculator";
             this.Text = "Calculator";
             this.pnlButtons.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -455,7 +526,7 @@
         private System.Windows.Forms.Button btnEqual;
         private System.Windows.Forms.Button btnPlusMinus;
         private System.Windows.Forms.Label lblDisplay;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label currentOperation;
     }
 }
 
