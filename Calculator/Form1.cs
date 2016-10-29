@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Drawing;
 using System.Globalization;
+using System.Threading;
 using System.Windows.Forms;
 using NCalc;
 
@@ -11,8 +13,11 @@ namespace Calculator
         public FormCalculator()
         {
             InitializeComponent();
+                       
         }
 
+        #region Calculator Button Clicks
+        
         private void btnOne_Click(object sender, EventArgs e)
         {
             DisplayText("1");
@@ -58,8 +63,9 @@ namespace Calculator
             DisplayText("9");
         }
 
-        private void btnClear_MouseHover(object sender, EventArgs e)
+        private void btnZero_Click(object sender, EventArgs e)
         {
+            DisplayText("0");
         }
 
         private void btnBackspace_Click(object sender, EventArgs e)
@@ -70,7 +76,12 @@ namespace Calculator
             }
         }
 
-        
+        private void btnClear_Click_1(object sender, EventArgs e)
+        {
+            lblDisplay.Text = "";
+            _calculation = "";
+        }
+
 
         private void btnClearEntry_Click(object sender, EventArgs e) // clears what's on screen
         {
@@ -81,30 +92,6 @@ namespace Calculator
         {
             _mathOperator = '+';
             AddToCalculation(_mathOperator.ToString());
-        }
-
-        private void btnPlusMinus_Click(object sender, EventArgs e)
-        {
-            var temp = Convert.ToDouble(lblDisplay.Text);
-            if (_numIsNegative || temp <= 0) // testing if negative is was already added or the number itself is negative
-            {
-                lblDisplay.Text = Convert.ToString(Math.Abs(temp), CultureInfo.CurrentCulture); // converts negative number back to positive
-                _numIsNegative = false;
-            }
-            else
-            {
-                _numIsNegative = true;
-                lblDisplay.Text = Negative + lblDisplay.Text; // makes number negative
-            }
-        }
-
-        private void btnEqual_Click(object sender, EventArgs e)
-        {
-            if (String.IsNullOrEmpty(lblDisplay.Text)) return;
-            _calculation += lblDisplay.Text;
-            Expression result = new Expression(_calculation);
-            lblDisplay.Text = result.Evaluate().ToString();
-            _calculation = "";
         }
 
         private void btnDivide_Click(object sender, EventArgs e)
@@ -124,20 +111,124 @@ namespace Calculator
             _mathOperator = '-';
             AddToCalculation(_mathOperator.ToString());
         }
+        private void btnPlusMinus_Click(object sender, EventArgs e)
+        {
+            var temp = Convert.ToDouble(lblDisplay.Text); // changes string to a number to be tested if negative.
+            if (_numIsNegative || temp <= 0) // testing if negative is was already added or the number itself is negative
+            {
+                lblDisplay.Text = Convert.ToString(Math.Abs(temp), CultureInfo.CurrentCulture); // converts negative number back to positive
+                _numIsNegative = false;
+            }
+            else
+            {
+                _numIsNegative = true;
+                lblDisplay.Text = Negative + lblDisplay.Text; // makes number negative
+            }
+        }
 
+        private void btnEqual_Click(object sender, EventArgs e)
+        {
+            DoCalculation();
+        }
         private void btnDecimal_Click(object sender, EventArgs e)
         {
             if (!lblDisplay.Text.Contains("."))
             {
-               // DisplayText(".");
+                // DisplayText(".");
                 lblDisplay.Text += ".";
             }
         }
 
-        private void btnClear_Click_1(object sender, EventArgs e)
+        #endregion
+
+
+
+        private void btnClear_MouseHover(object sender, EventArgs e)
         {
-            lblDisplay.Text = "";
-            _calculation = "";
+        }
+
+        private void FormCalculator_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Color color = new Color();
+            int delay = 0;
+            
+            switch (e.KeyChar)
+            {
+                case (char) Keys.Return:
+                    DoCalculation();
+                    e.Handled = true;
+                    break;
+                case (char) 42:
+                    _mathOperator = '*';
+                    AddToCalculation(_mathOperator.ToString());
+                    e.Handled = true;
+                    break;
+                case (char) 43:
+                    _mathOperator = '+';
+                    AddToCalculation(_mathOperator.ToString());
+                    e.Handled = true;
+                    break;
+                case (char) 45:
+                    _mathOperator = '-';
+                    AddToCalculation(_mathOperator.ToString());
+                    e.Handled = true;
+                    break;
+                case (char) 47:
+                    _mathOperator = '/';
+                    AddToCalculation(_mathOperator.ToString());
+                    e.Handled = true;
+                    break;
+                case (char) 48:
+                    DisplayText("0");
+                    /*
+                    color = btnZero.BackColor;
+                    btnZero.BackColor = Color.Gray;
+                    Thread.Sleep(delay);
+                    btnZero.BackColor = color;
+                    //*/
+                    e.Handled = true;
+                    break;
+                case (char) 49:
+                    DisplayText("1");
+                    e.Handled = true;
+                    break;
+                case (char) 50:
+                    DisplayText("2");
+                    e.Handled = true;
+                    break;
+                case (char) 51:
+                    DisplayText("3");
+                    e.Handled = true;
+                    break;
+                case (char) 52:
+                    DisplayText("4");
+                    e.Handled = true;
+                    break;
+                case (char) 53:
+                    DisplayText("5");
+                    e.Handled = true;
+                    break;
+                case (char) 54:
+                    DisplayText("6");
+                    e.Handled = true;
+                    break;
+                case (char) 55:
+                    DisplayText("7");
+                    e.Handled = true;
+                    break;
+                case (char) 56:
+                    DisplayText("8");
+                    e.Handled = true;
+                    break;
+                case (char) 57:
+                    DisplayText("9");
+                    e.Handled = true;
+                    break;
+                default:
+                    
+                    e.Handled = true;
+                    break;
+            }
         }
     }
 }

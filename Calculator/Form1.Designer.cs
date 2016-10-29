@@ -388,7 +388,6 @@
             this.btnOne.Text = "1";
             this.btnOne.UseVisualStyleBackColor = false;
             this.btnOne.Click += new System.EventHandler(this.btnOne_Click);
-            this.btnOne.MouseHover += new System.EventHandler(this.btnClear_MouseHover);
             // 
             // btnZero
             // 
@@ -406,6 +405,7 @@
             this.btnZero.TabIndex = 3;
             this.btnZero.Text = "0";
             this.btnZero.UseVisualStyleBackColor = false;
+            this.btnZero.Click += new System.EventHandler(this.btnZero_Click);
             this.btnZero.MouseHover += new System.EventHandler(this.btnClear_MouseHover);
             // 
             // btnDecimal
@@ -462,8 +462,9 @@
             this.btnPlusMinus.Name = "btnPlusMinus";
             this.btnPlusMinus.Size = new System.Drawing.Size(48, 53);
             this.btnPlusMinus.TabIndex = 0;
-            this.btnPlusMinus.Text = "±";
-            this.btnPlusMinus.UseVisualStyleBackColor = false;
+            this.btnPlusMinus.Text = "5";
+            this.btnPlusMinus.UseMnemonic = false;
+            this.btnPlusMinus.UseVisualStyleBackColor = true;
             this.btnPlusMinus.Click += new System.EventHandler(this.btnPlusMinus_Click);
             this.btnPlusMinus.MouseHover += new System.EventHandler(this.btnClear_MouseHover);
             // 
@@ -494,8 +495,10 @@
             this.Controls.Add(this.currentOperation);
             this.Controls.Add(this.lblDisplay);
             this.Controls.Add(this.pnlButtons);
+            this.KeyPreview = true;
             this.Name = "FormCalculator";
             this.Text = "Calculator";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FormCalculator_KeyPress);
             this.pnlButtons.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
