@@ -70,22 +70,23 @@ namespace Calculator
 
         private void btnBackspace_Click(object sender, EventArgs e)
         {
-            if (lblDisplay.Text.Length >= 1)
+            if (lblDisplay.Text.Length >= 1) // removes a character from the display
             {
                 lblDisplay.Text = lblDisplay.Text.Remove(lblDisplay.Text.Length - 1);
             }
         }
 
-        private void btnClear_Click_1(object sender, EventArgs e)
+        private void btnClear_Click_1(object sender, EventArgs e) // clears screen and current calculation
         {
-            lblDisplay.Text = "";
-            _calculation = "";
+            lblDisplay.Text = string.Empty;
+            _calculation = string.Empty;
+            currentOperation.Text = string.Empty;
         }
 
 
         private void btnClearEntry_Click(object sender, EventArgs e) // clears what's on screen
         {
-            lblDisplay.Text = "";
+            lblDisplay.Text = string.Empty;
         }
 
         private void btnPlus_Click(object sender, EventArgs e)
@@ -132,9 +133,8 @@ namespace Calculator
         }
         private void btnDecimal_Click(object sender, EventArgs e)
         {
-            if (!lblDisplay.Text.Contains("."))
+            if (!lblDisplay.Text.Contains(".")) // checks to see if decmail exist
             {
-                // DisplayText(".");
                 lblDisplay.Text += ".";
             }
         }
@@ -152,7 +152,7 @@ namespace Calculator
             Color color = new Color();
             int delay = 0;
             
-            switch (e.KeyChar)
+            switch (e.KeyChar) // value of the key presses from the keyboard
             {
                 case (char) Keys.Return:
                     DoCalculation();

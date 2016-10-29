@@ -14,7 +14,7 @@ namespace Calculator
 
        private void DisplayText(string number)
         {
-            if (string.IsNullOrEmpty(lblDisplay.Text))
+            if (string.IsNullOrEmpty(lblDisplay.Text)) // adds the text to the screen
             {
                 lblDisplay.Text = number;
 
@@ -31,7 +31,7 @@ namespace Calculator
 
         private void AddToCalculation(string mathOperator)
         {
-            if (String.IsNullOrEmpty(_calculation))
+            if (String.IsNullOrEmpty(_calculation)) // populates the calculation string
             {
                 _calculation = lblDisplay.Text + " " + mathOperator + " ";
                 currentOperation.Text = _calculation;
@@ -42,7 +42,7 @@ namespace Calculator
                 currentOperation.Text = _calculation;
             }
             
-            lblDisplay.Text = "";
+            lblDisplay.Text = string.Empty; // makes the display blank.
         }
 
         private void DoCalculation()
