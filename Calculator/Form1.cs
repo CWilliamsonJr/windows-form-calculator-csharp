@@ -151,81 +151,93 @@ namespace Calculator
         {
             Color color = new Color();
             int delay = 0;
-            
+
+            if (e.KeyChar == (char) Keys.Enter || e.KeyChar == (char) Keys.Return)
+            {
+                MessageBox.Show("You are here");
+                btnEqual.PerformClick();
+                e.Handled = true;
+                
+            }
+                
+
             switch (e.KeyChar) // value of the key presses from the keyboard
             {
-                case (char) Keys.Return:
-                    DoCalculation();
-                    e.Handled = true;
-                    break;
+                
                 case (char) 42:
-                    _mathOperator = '*';
-                    AddToCalculation(_mathOperator.ToString());
-                    e.Handled = true;
+                    //_mathOperator = '*';
+                    //AddToCalculation(_mathOperator.ToString());
+                    //e.Handled = true;
+                   btnMultiply.PerformClick();
                     break;
                 case (char) 43:
-                    _mathOperator = '+';
-                    AddToCalculation(_mathOperator.ToString());
+                    btnPlus.PerformClick();
                     e.Handled = true;
                     break;
                 case (char) 45:
-                    _mathOperator = '-';
-                    AddToCalculation(_mathOperator.ToString());
+                    btnMinus.PerformClick();
                     e.Handled = true;
                     break;
                 case (char) 47:
-                    _mathOperator = '/';
-                    AddToCalculation(_mathOperator.ToString());
+                    btnDivide.PerformClick();
                     e.Handled = true;
                     break;
                 case (char) 48:
-                    DisplayText("0");
                     /*
                     color = btnZero.BackColor;
                     btnZero.BackColor = Color.Gray;
                     Thread.Sleep(delay);
                     btnZero.BackColor = color;
                     //*/
+                    btnZero.PerformClick();
                     e.Handled = true;
                     break;
                 case (char) 49:
-                    DisplayText("1");
+                    btnOne.PerformClick();
                     e.Handled = true;
                     break;
                 case (char) 50:
-                    DisplayText("2");
+                    btnTwo.PerformClick();
                     e.Handled = true;
                     break;
                 case (char) 51:
-                    DisplayText("3");
+                    btnThree.PerformClick();
                     e.Handled = true;
                     break;
                 case (char) 52:
-                    DisplayText("4");
+                    btnFour.PerformClick();
                     e.Handled = true;
                     break;
                 case (char) 53:
-                    DisplayText("5");
+                    btnFive.PerformClick();
                     e.Handled = true;
                     break;
                 case (char) 54:
-                    DisplayText("6");
+                    btnSix.PerformClick();
                     e.Handled = true;
                     break;
                 case (char) 55:
-                    DisplayText("7");
+                    btnSeven.PerformClick();
                     e.Handled = true;
                     break;
                 case (char) 56:
-                    DisplayText("8");
+                    bntEight.PerformClick();
                     e.Handled = true;
                     break;
                 case (char) 57:
-                    DisplayText("9");
+                    btnNine.PerformClick();
                     e.Handled = true;
                     break;
+                case (char) Keys.Back:
+                    btnBackspace.PerformClick();
+                    break;
+                case (char)Keys.Delete:
+                    btnClearEntry.PerformClick();
+                    break;
+                case (char)Keys.Decimal:
+                    btnDecimal.PerformClick();
+                    break;
                 default:
-                    
                     e.Handled = true;
                     break;
             }

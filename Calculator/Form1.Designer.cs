@@ -33,7 +33,7 @@
             this.btnBackspace = new System.Windows.Forms.Button();
             this.btnDivide = new System.Windows.Forms.Button();
             this.btnClearEntry = new System.Windows.Forms.Button();
-            this.bnEight = new System.Windows.Forms.Button();
+            this.bntEight = new System.Windows.Forms.Button();
             this.btnNine = new System.Windows.Forms.Button();
             this.btnMultiply = new System.Windows.Forms.Button();
             this.btnSeven = new System.Windows.Forms.Button();
@@ -66,7 +66,7 @@
             this.pnlButtons.Controls.Add(this.btnBackspace);
             this.pnlButtons.Controls.Add(this.btnDivide);
             this.pnlButtons.Controls.Add(this.btnClearEntry);
-            this.pnlButtons.Controls.Add(this.bnEight);
+            this.pnlButtons.Controls.Add(this.bntEight);
             this.pnlButtons.Controls.Add(this.btnNine);
             this.pnlButtons.Controls.Add(this.btnMultiply);
             this.pnlButtons.Controls.Add(this.btnSeven);
@@ -162,24 +162,24 @@
             this.btnClearEntry.Click += new System.EventHandler(this.btnClearEntry_Click);
             this.btnClearEntry.MouseHover += new System.EventHandler(this.btnClear_MouseHover);
             // 
-            // bnEight
+            // bntEight
             // 
-            this.bnEight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.bnEight.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.bnEight.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.bnEight.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bnEight.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bnEight.FlatAppearance.BorderSize = 0;
-            this.bnEight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bnEight.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnEight.Location = new System.Drawing.Point(62, 59);
-            this.bnEight.Name = "bnEight";
-            this.bnEight.Size = new System.Drawing.Size(48, 53);
-            this.bnEight.TabIndex = 15;
-            this.bnEight.Text = "8";
-            this.bnEight.UseVisualStyleBackColor = false;
-            this.bnEight.Click += new System.EventHandler(this.bnEight_Click);
-            this.bnEight.MouseHover += new System.EventHandler(this.btnClear_MouseHover);
+            this.bntEight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.bntEight.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bntEight.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.bntEight.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bntEight.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bntEight.FlatAppearance.BorderSize = 0;
+            this.bntEight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bntEight.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bntEight.Location = new System.Drawing.Point(62, 59);
+            this.bntEight.Name = "bntEight";
+            this.bntEight.Size = new System.Drawing.Size(48, 53);
+            this.bntEight.TabIndex = 15;
+            this.bntEight.Text = "8";
+            this.bntEight.UseVisualStyleBackColor = false;
+            this.bntEight.Click += new System.EventHandler(this.bnEight_Click);
+            this.bntEight.MouseHover += new System.EventHandler(this.btnClear_MouseHover);
             // 
             // btnNine
             // 
@@ -458,13 +458,12 @@
             this.btnPlusMinus.FlatAppearance.BorderSize = 0;
             this.btnPlusMinus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPlusMinus.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlusMinus.Location = new System.Drawing.Point(8, 236);
+            this.btnPlusMinus.Location = new System.Drawing.Point(3, 236);
             this.btnPlusMinus.Name = "btnPlusMinus";
             this.btnPlusMinus.Size = new System.Drawing.Size(48, 53);
             this.btnPlusMinus.TabIndex = 0;
-            this.btnPlusMinus.Text = "5";
-            this.btnPlusMinus.UseMnemonic = false;
-            this.btnPlusMinus.UseVisualStyleBackColor = true;
+            this.btnPlusMinus.Text = "±";
+            this.btnPlusMinus.UseVisualStyleBackColor = false;
             this.btnPlusMinus.Click += new System.EventHandler(this.btnPlusMinus_Click);
             this.btnPlusMinus.MouseHover += new System.EventHandler(this.btnClear_MouseHover);
             // 
@@ -512,7 +511,7 @@
         private System.Windows.Forms.Button btnBackspace;
         private System.Windows.Forms.Button btnDivide;
         private System.Windows.Forms.Button btnClearEntry;
-        private System.Windows.Forms.Button bnEight;
+        private System.Windows.Forms.Button bntEight;
         private System.Windows.Forms.Button btnNine;
         private System.Windows.Forms.Button btnMultiply;
         private System.Windows.Forms.Button btnSeven;

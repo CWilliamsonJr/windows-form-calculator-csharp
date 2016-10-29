@@ -32,6 +32,7 @@ namespace Calculator
 
         private void AddToCalculation(string mathOperator)
         {
+            if (string.IsNullOrEmpty(lblDisplay.Text)) return; // prevents blank operations from being added.
             if (String.IsNullOrEmpty(_calculation)) // populates the calculation string
             {
                 _calculation = lblDisplay.Text + " " + mathOperator + " ";
