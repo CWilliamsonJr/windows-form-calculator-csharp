@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using NCalc;
 
 
@@ -10,7 +11,7 @@ namespace Calculator
         private string _calculation; // holds string of the current math operations
         private const char Negative = '-';
         private char _mathOperator; // stores the math operator
-        private bool _numIsNegative = false; // determines whether or not the negative key as been hi
+        private bool _numIsNegative; // determines whether or not the negative key as been hi
 
        private void DisplayText(string number)
         {
@@ -25,7 +26,7 @@ namespace Calculator
                 strTemp += number;
                 double numTemp = Convert.ToDouble(strTemp);
                 // TODO: add format string for commas and decmail
-                lblDisplay.Text = numTemp.ToString();
+                lblDisplay.Text = numTemp.ToString(CultureInfo.CurrentCulture);
             }
         }
 
