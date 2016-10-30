@@ -11,7 +11,7 @@ namespace Calculator
         private string _calculation; // holds string of the current math operations
         private const char Negative = '-';
         private char _mathOperator; // stores the math operator
-        private bool skip, _numIsNegative; // determines whether or not the negative key as been hi
+        private bool _skip, _numIsNegative; // determines whether or not the negative key as been hi
 
         private void DisplayText(string number)
         {
@@ -37,14 +37,14 @@ namespace Calculator
             if (string.IsNullOrEmpty(lblDisplay.Text)) return; // prevents blank operations from being added.
 
             _calculation += lblDisplay.Text + @" " + mathOperator + @" ";
-            if (skip == false)
+            if (_skip == false)
             {
-                currentOperation.Text += lblDisplay.Text + " " + mathOperator + @" ";
+                currentOperation.Text += lblDisplay.Text + @" " + mathOperator + @" ";
             }
             else
             {
                 currentOperation.Text += @" " + mathOperator + @" ";
-                skip = false;
+                _skip = false;
             }
 
             lblDisplay.Text = string.Empty; // makes the display blank.

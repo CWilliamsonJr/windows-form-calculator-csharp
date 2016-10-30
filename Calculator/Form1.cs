@@ -157,25 +157,25 @@ namespace Calculator
 
             currentOperation.Text += result.Evaluate().ToString(); // add to current operation text
             lblDisplay.Text = result.Evaluate().ToString();
-            skip = true;
+            _skip = true;
         }
 
         private void btnSqrt_Click(object sender, EventArgs e)
         {
             var result = new Expression($"Sqrt({lblDisplay.Text})");
-            currentOperation.Text += $@"Sqrt({lblDisplay.Text})";
-            lblDisplay.Text = result.Evaluate().ToString();
-            skip = true;
+            currentOperation.Text += $@"sqrt({lblDisplay.Text})"; // adds square root to the current operation display
+            lblDisplay.Text = result.Evaluate().ToString(); // posts result to the screen
+            _skip = true;
         }
 
         private void btnSquared_Click(object sender, EventArgs e)
         {
-            var sqr = Convert.ToDouble(lblDisplay.Text);
-            sqr = sqr * sqr;
-            var result = new Expression(sqr.ToString(CultureInfo.CurrentCulture));
-            currentOperation.Text += $@"Sqr({lblDisplay.Text})";
+            var sqr = lblDisplay.Text; // converts to double so a
+            sqr += "*" + sqr;
+            var result = new Expression(sqr);
+            currentOperation.Text += $@"sqr({lblDisplay.Text})";
             lblDisplay.Text = result.Evaluate().ToString();
-            skip = true;
+            _skip = true;
         }
 
         private void btnInverse_Click(object sender, EventArgs e)
@@ -184,7 +184,7 @@ namespace Calculator
             var result = new Expression(inverse);
             currentOperation.Text += $@"1/({lblDisplay.Text})";
             lblDisplay.Text = result.Evaluate().ToString();
-            skip = true;
+            _skip = true;
         }
 
         #endregion
