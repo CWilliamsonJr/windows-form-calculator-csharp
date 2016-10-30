@@ -12,7 +12,6 @@ namespace Calculator
         public FormCalculator()
         {
             InitializeComponent();
-
         }
 
         #region Calculator Button Clicks
@@ -82,6 +81,25 @@ namespace Calculator
             currentOperation.Text = string.Empty;
         }
 
+        private void btnNegative_Click(object sender, EventArgs e)
+        {
+            //*
+            //ERROR: Enter Key is trigering this click event.
+
+            if (_numIsNegative)
+            {
+                var temp = Convert.ToDouble(lblDisplay.Text); // changes string to a number.
+                lblDisplay.Text = Convert.ToString(Math.Abs(temp), CultureInfo.CurrentCulture); // converts negative number back to positive
+                _numIsNegative = false;
+            }
+            else
+            {
+                _numIsNegative = true;
+                lblDisplay.Text = Negative + lblDisplay.Text; // makes number negative
+            }
+
+            //*/
+        }
 
         private void btnClearEntry_Click(object sender, EventArgs e) // clears what's on screen
         {
@@ -111,24 +129,7 @@ namespace Calculator
             _mathOperator = '-';
             AddToCalculation(_mathOperator.ToString());
         }
-        private void btnPlusMinus_Click(object sender, EventArgs e)
-        {
-            //*
-            //NOTE: Possible Enter key error here.
-            if (_numIsNegative)
-            {
-                var temp = Convert.ToDouble(lblDisplay.Text); // changes string to a number.
-                lblDisplay.Text = Convert.ToString(Math.Abs(temp), CultureInfo.CurrentCulture); // converts negative number back to positive
-                _numIsNegative = false;
-            }
-            else
-            {
-                _numIsNegative = true;
-                lblDisplay.Text = Negative + lblDisplay.Text; // makes number negative
-            }
-
-            //*/
-        }
+        
 
         private void btnEqual_Click(object sender, EventArgs e)
         {
@@ -139,8 +140,6 @@ namespace Calculator
             if (!lblDisplay.Text.Contains(".")) // checks to see if decmail exist
             {
                 lblDisplay.Text += @".";
-
-
             }
         }
 
@@ -158,6 +157,7 @@ namespace Calculator
 
             currentOperation.Text += result.Evaluate().ToString(); // add to current operation text
             lblDisplay.Text = result.Evaluate().ToString();
+            skip = true;
         }
 
         private void btnSqrt_Click(object sender, EventArgs e)
@@ -165,6 +165,7 @@ namespace Calculator
             var result = new Expression($"Sqrt({lblDisplay.Text})");
             currentOperation.Text += $@"Sqrt({lblDisplay.Text})";
             lblDisplay.Text = result.Evaluate().ToString();
+            skip = true;
         }
 
         private void btnSquared_Click(object sender, EventArgs e)
@@ -174,6 +175,7 @@ namespace Calculator
             var result = new Expression(sqr.ToString(CultureInfo.CurrentCulture));
             currentOperation.Text += $@"Sqr({lblDisplay.Text})";
             lblDisplay.Text = result.Evaluate().ToString();
+            skip = true;
         }
 
         private void btnInverse_Click(object sender, EventArgs e)
@@ -182,29 +184,15 @@ namespace Calculator
             var result = new Expression(inverse);
             currentOperation.Text += $@"1/({lblDisplay.Text})";
             lblDisplay.Text = result.Evaluate().ToString();
+            skip = true;
         }
 
         #endregion
 
 
 
-        private void btnClear_MouseHover(object sender, EventArgs e)
-        {
-        }
-
         private void FormCalculator_KeyUp(object sender, KeyEventArgs e)
         {
-            //var color = new Color();
-            //var delay = 0;
-
-            //if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Return)
-            //{
-            //    MessageBox.Show("You are here");
-            //    btnEqual.PerformClick();
-            //    e.Handled = true;
-
-            //}
-
 
             switch (e.KeyCode) // value of the key presses from the keyboard
             {
@@ -222,7 +210,6 @@ namespace Calculator
                     e.Handled = true;
                     break;
                 case Keys.Subtract:
-                case Keys.OemMinus:
                     btnMinus.PerformClick();
                     e.Handled = true;
                     break;
@@ -243,7 +230,8 @@ namespace Calculator
                     break;
                 case Keys.D1:
                 case Keys.NumPad1:
-                    btnOne.PerformClick();
+                    //btnOne.PerformClick();
+                    btnOne_Click(sender,e);
                     e.Handled = true;
                     break;
                 case Keys.D2:
@@ -295,10 +283,9 @@ namespace Calculator
                 case Keys.Decimal:
                     btnDecimal.PerformClick();
                     break;
-
             }
         }
 
-
+        
     }
 }

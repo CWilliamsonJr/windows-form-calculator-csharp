@@ -48,7 +48,7 @@
             this.btnZero = new System.Windows.Forms.Button();
             this.btnDecimal = new System.Windows.Forms.Button();
             this.btnEqual = new System.Windows.Forms.Button();
-            this.btnPlusMinus = new System.Windows.Forms.Button();
+            this.btnNegative = new System.Windows.Forms.Button();
             this.lblDisplay = new System.Windows.Forms.Label();
             this.currentOperation = new System.Windows.Forms.Label();
             this.btnSqrt = new System.Windows.Forms.Button();
@@ -85,7 +85,7 @@
             this.pnlButtons.Controls.Add(this.btnZero);
             this.pnlButtons.Controls.Add(this.btnDecimal);
             this.pnlButtons.Controls.Add(this.btnEqual);
-            this.pnlButtons.Controls.Add(this.btnPlusMinus);
+            this.pnlButtons.Controls.Add(this.btnNegative);
             this.pnlButtons.Location = new System.Drawing.Point(0, 188);
             this.pnlButtons.Name = "pnlButtons";
             this.pnlButtons.Size = new System.Drawing.Size(221, 292);
@@ -126,7 +126,6 @@
             this.btnBackspace.Text = "←";
             this.btnBackspace.UseVisualStyleBackColor = false;
             this.btnBackspace.Click += new System.EventHandler(this.btnBackspace_Click);
-            this.btnBackspace.MouseHover += new System.EventHandler(this.btnClear_MouseHover);
             // 
             // btnDivide
             // 
@@ -145,7 +144,6 @@
             this.btnDivide.Text = "÷";
             this.btnDivide.UseVisualStyleBackColor = false;
             this.btnDivide.Click += new System.EventHandler(this.btnDivide_Click);
-            this.btnDivide.MouseHover += new System.EventHandler(this.btnClear_MouseHover);
             // 
             // btnClearEntry
             // 
@@ -164,7 +162,6 @@
             this.btnClearEntry.Text = "CE";
             this.btnClearEntry.UseVisualStyleBackColor = false;
             this.btnClearEntry.Click += new System.EventHandler(this.btnClearEntry_Click);
-            this.btnClearEntry.MouseHover += new System.EventHandler(this.btnClear_MouseHover);
             // 
             // bntEight
             // 
@@ -183,7 +180,6 @@
             this.bntEight.Text = "8";
             this.bntEight.UseVisualStyleBackColor = false;
             this.bntEight.Click += new System.EventHandler(this.bnEight_Click);
-            this.bntEight.MouseHover += new System.EventHandler(this.btnClear_MouseHover);
             // 
             // btnNine
             // 
@@ -202,7 +198,6 @@
             this.btnNine.Text = "9";
             this.btnNine.UseVisualStyleBackColor = false;
             this.btnNine.Click += new System.EventHandler(this.btnNine_Click);
-            this.btnNine.MouseHover += new System.EventHandler(this.btnClear_MouseHover);
             // 
             // btnMultiply
             // 
@@ -221,7 +216,6 @@
             this.btnMultiply.Text = "x";
             this.btnMultiply.UseVisualStyleBackColor = false;
             this.btnMultiply.Click += new System.EventHandler(this.btnMultiply_Click);
-            this.btnMultiply.MouseHover += new System.EventHandler(this.btnClear_MouseHover);
             // 
             // btnSeven
             // 
@@ -240,7 +234,6 @@
             this.btnSeven.Text = "7";
             this.btnSeven.UseVisualStyleBackColor = false;
             this.btnSeven.Click += new System.EventHandler(this.btnSeven_Click);
-            this.btnSeven.MouseHover += new System.EventHandler(this.btnClear_MouseHover);
             // 
             // btnFive
             // 
@@ -259,7 +252,6 @@
             this.btnFive.Text = "5";
             this.btnFive.UseVisualStyleBackColor = false;
             this.btnFive.Click += new System.EventHandler(this.btnFive_Click);
-            this.btnFive.MouseHover += new System.EventHandler(this.btnClear_MouseHover);
             // 
             // btnSix
             // 
@@ -278,7 +270,6 @@
             this.btnSix.Text = "6";
             this.btnSix.UseVisualStyleBackColor = false;
             this.btnSix.Click += new System.EventHandler(this.btnSix_Click);
-            this.btnSix.MouseHover += new System.EventHandler(this.btnClear_MouseHover);
             // 
             // btnMinus
             // 
@@ -297,7 +288,6 @@
             this.btnMinus.Text = "-";
             this.btnMinus.UseVisualStyleBackColor = false;
             this.btnMinus.Click += new System.EventHandler(this.btnMinus_Click);
-            this.btnMinus.MouseHover += new System.EventHandler(this.btnClear_MouseHover);
             // 
             // btnFour
             // 
@@ -316,7 +306,6 @@
             this.btnFour.Text = "4";
             this.btnFour.UseVisualStyleBackColor = false;
             this.btnFour.Click += new System.EventHandler(this.btnFour_Click);
-            this.btnFour.MouseHover += new System.EventHandler(this.btnClear_MouseHover);
             // 
             // btnTwo
             // 
@@ -335,7 +324,6 @@
             this.btnTwo.Text = "2";
             this.btnTwo.UseVisualStyleBackColor = false;
             this.btnTwo.Click += new System.EventHandler(this.btnTwo_Click);
-            this.btnTwo.MouseHover += new System.EventHandler(this.btnClear_MouseHover);
             // 
             // btnThree
             // 
@@ -354,7 +342,6 @@
             this.btnThree.Text = "3";
             this.btnThree.UseVisualStyleBackColor = false;
             this.btnThree.Click += new System.EventHandler(this.btnThree_Click);
-            this.btnThree.MouseHover += new System.EventHandler(this.btnClear_MouseHover);
             // 
             // btnPlus
             // 
@@ -373,7 +360,6 @@
             this.btnPlus.Text = "+";
             this.btnPlus.UseVisualStyleBackColor = false;
             this.btnPlus.Click += new System.EventHandler(this.btnPlus_Click);
-            this.btnPlus.MouseHover += new System.EventHandler(this.btnClear_MouseHover);
             // 
             // btnOne
             // 
@@ -410,7 +396,6 @@
             this.btnZero.Text = "0";
             this.btnZero.UseVisualStyleBackColor = false;
             this.btnZero.Click += new System.EventHandler(this.btnZero_Click);
-            this.btnZero.MouseHover += new System.EventHandler(this.btnClear_MouseHover);
             // 
             // btnDecimal
             // 
@@ -429,7 +414,6 @@
             this.btnDecimal.Text = ".";
             this.btnDecimal.UseVisualStyleBackColor = false;
             this.btnDecimal.Click += new System.EventHandler(this.btnDecimal_Click);
-            this.btnDecimal.MouseHover += new System.EventHandler(this.btnClear_MouseHover);
             // 
             // btnEqual
             // 
@@ -450,26 +434,24 @@
             this.btnEqual.Text = "=";
             this.btnEqual.UseVisualStyleBackColor = false;
             this.btnEqual.Click += new System.EventHandler(this.btnEqual_Click);
-            this.btnEqual.MouseHover += new System.EventHandler(this.btnClear_MouseHover);
             // 
-            // btnPlusMinus
+            // btnNegative
             // 
-            this.btnPlusMinus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnPlusMinus.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnPlusMinus.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnPlusMinus.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPlusMinus.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnPlusMinus.FlatAppearance.BorderSize = 0;
-            this.btnPlusMinus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPlusMinus.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlusMinus.Location = new System.Drawing.Point(3, 236);
-            this.btnPlusMinus.Name = "btnPlusMinus";
-            this.btnPlusMinus.Size = new System.Drawing.Size(48, 53);
-            this.btnPlusMinus.TabIndex = 0;
-            this.btnPlusMinus.Text = "±";
-            this.btnPlusMinus.UseVisualStyleBackColor = false;
-            this.btnPlusMinus.Click += new System.EventHandler(this.btnPlusMinus_Click);
-            this.btnPlusMinus.MouseHover += new System.EventHandler(this.btnClear_MouseHover);
+            this.btnNegative.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnNegative.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnNegative.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnNegative.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNegative.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnNegative.FlatAppearance.BorderSize = 0;
+            this.btnNegative.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNegative.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNegative.Location = new System.Drawing.Point(3, 236);
+            this.btnNegative.Name = "btnNegative";
+            this.btnNegative.Size = new System.Drawing.Size(48, 53);
+            this.btnNegative.TabIndex = 0;
+            this.btnNegative.Text = "±";
+            this.btnNegative.UseVisualStyleBackColor = false;
+            this.btnNegative.Click += new System.EventHandler(this.btnNegative_Click);
             // 
             // lblDisplay
             // 
@@ -610,7 +592,7 @@
         private System.Windows.Forms.Button btnZero;
         private System.Windows.Forms.Button btnDecimal;
         private System.Windows.Forms.Button btnEqual;
-        private System.Windows.Forms.Button btnPlusMinus;
+        private System.Windows.Forms.Button btnNegative;
         private System.Windows.Forms.Label lblDisplay;
         private System.Windows.Forms.Label currentOperation;
         private System.Windows.Forms.Button btnSqrt;

@@ -11,9 +11,9 @@ namespace Calculator
         private string _calculation; // holds string of the current math operations
         private const char Negative = '-';
         private char _mathOperator; // stores the math operator
-        private bool altText, _numIsNegative; // determines whether or not the negative key as been hi
+        private bool skip, _numIsNegative; // determines whether or not the negative key as been hi
 
-       private void DisplayText(string number)
+        private void DisplayText(string number)
         {
             if (string.IsNullOrEmpty(lblDisplay.Text)) // adds the text to the screen
             {
@@ -35,17 +35,18 @@ namespace Calculator
             //TODO: Add flag for if Sqrt is used so that current operation shows sqrt(num)
 
             if (string.IsNullOrEmpty(lblDisplay.Text)) return; // prevents blank operations from being added.
-            if (String.IsNullOrEmpty(_calculation)) // populates the calculation string
+
+            _calculation += lblDisplay.Text + @" " + mathOperator + @" ";
+            if (skip == false)
             {
-                _calculation = lblDisplay.Text + " " + mathOperator + " ";
-                currentOperation.Text = _calculation;
+                currentOperation.Text += lblDisplay.Text + " " + mathOperator + @" ";
             }
             else
             {
-                _calculation += lblDisplay.Text + " " + mathOperator + " ";
-                currentOperation.Text = _calculation;
+                currentOperation.Text += @" " + mathOperator + @" ";
+                skip = false;
             }
-            
+
             lblDisplay.Text = string.Empty; // makes the display blank.
         }
 
