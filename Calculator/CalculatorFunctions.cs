@@ -11,7 +11,7 @@ namespace Calculator
         private string _calculation; // holds string of the current math operations
         private const char Negative = '-';
         private char _mathOperator; // stores the math operator
-        private bool _numIsNegative; // determines whether or not the negative key as been hi
+        private bool altText, _numIsNegative; // determines whether or not the negative key as been hi
 
        private void DisplayText(string number)
         {
@@ -24,7 +24,7 @@ namespace Calculator
             {
                 var strTemp = lblDisplay.Text;
                 strTemp += number;
-                double numTemp = Convert.ToDouble(strTemp);
+                var numTemp = Convert.ToDouble(strTemp);
                 // TODO: add format string for commas and decmail
                 lblDisplay.Text = numTemp.ToString(CultureInfo.CurrentCulture);
             }
@@ -32,6 +32,8 @@ namespace Calculator
 
         private void AddToCalculation(string mathOperator)
         {
+            //TODO: Add flag for if Sqrt is used so that current operation shows sqrt(num)
+
             if (string.IsNullOrEmpty(lblDisplay.Text)) return; // prevents blank operations from being added.
             if (String.IsNullOrEmpty(_calculation)) // populates the calculation string
             {
@@ -53,7 +55,7 @@ namespace Calculator
             if (String.IsNullOrEmpty(_calculation))
             {
                 _calculation = _lastNumberCalculated + _mathOperator + _lastNumberEntered; // makes new math expression to be calculated based on the last operation.
-                Expression result = new Expression(_calculation);
+                var result = new Expression(_calculation);
                 _lastNumberCalculated = lblDisplay.Text = result.Evaluate().ToString();
 
                 _calculation = String.Empty;
@@ -62,7 +64,7 @@ namespace Calculator
             {
                 _lastNumberEntered = lblDisplay.Text; // stores the last number entered 
                 _calculation += lblDisplay.Text; // adds the last entered value to the calculation string
-                Expression result = new Expression(_calculation); // builds new object to be evaluated
+                var result = new Expression(_calculation); // builds new object to be evaluated
                 _lastNumberCalculated = lblDisplay.Text = result.Evaluate().ToString(); // posts answer to the screen.
 
                 _calculation = String.Empty;

@@ -51,6 +51,10 @@
             this.btnPlusMinus = new System.Windows.Forms.Button();
             this.lblDisplay = new System.Windows.Forms.Label();
             this.currentOperation = new System.Windows.Forms.Label();
+            this.btnSqrt = new System.Windows.Forms.Button();
+            this.btnSquared = new System.Windows.Forms.Button();
+            this.btnInverse = new System.Windows.Forms.Button();
+            this.btnPercent = new System.Windows.Forms.Button();
             this.pnlButtons.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,7 +86,7 @@
             this.pnlButtons.Controls.Add(this.btnDecimal);
             this.pnlButtons.Controls.Add(this.btnEqual);
             this.pnlButtons.Controls.Add(this.btnPlusMinus);
-            this.pnlButtons.Location = new System.Drawing.Point(0, 143);
+            this.pnlButtons.Location = new System.Drawing.Point(0, 188);
             this.pnlButtons.Name = "pnlButtons";
             this.pnlButtons.Size = new System.Drawing.Size(221, 292);
             this.pnlButtons.TabIndex = 0;
@@ -153,7 +157,7 @@
             this.btnClearEntry.FlatAppearance.BorderSize = 0;
             this.btnClearEntry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClearEntry.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClearEntry.Location = new System.Drawing.Point(8, 1);
+            this.btnClearEntry.Location = new System.Drawing.Point(8, 3);
             this.btnClearEntry.Name = "btnClearEntry";
             this.btnClearEntry.Size = new System.Drawing.Size(48, 53);
             this.btnClearEntry.TabIndex = 16;
@@ -470,34 +474,112 @@
             // lblDisplay
             // 
             this.lblDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDisplay.Location = new System.Drawing.Point(3, 59);
+            this.lblDisplay.Location = new System.Drawing.Point(3, 76);
             this.lblDisplay.Name = "lblDisplay";
             this.lblDisplay.Size = new System.Drawing.Size(215, 39);
             this.lblDisplay.TabIndex = 1;
+            this.lblDisplay.Text = "0";
             this.lblDisplay.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // currentOperation
             // 
             this.currentOperation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentOperation.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.currentOperation.Location = new System.Drawing.Point(5, 9);
+            this.currentOperation.Location = new System.Drawing.Point(5, 11);
             this.currentOperation.Name = "currentOperation";
             this.currentOperation.Size = new System.Drawing.Size(213, 23);
             this.currentOperation.TabIndex = 2;
             this.currentOperation.Tag = "current Operation";
+            this.currentOperation.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // btnSqrt
+            // 
+            this.btnSqrt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSqrt.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnSqrt.BackColor = System.Drawing.SystemColors.Control;
+            this.btnSqrt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSqrt.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnSqrt.FlatAppearance.BorderSize = 0;
+            this.btnSqrt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSqrt.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSqrt.Location = new System.Drawing.Point(60, 135);
+            this.btnSqrt.Name = "btnSqrt";
+            this.btnSqrt.Size = new System.Drawing.Size(48, 53);
+            this.btnSqrt.TabIndex = 23;
+            this.btnSqrt.Text = "√";
+            this.btnSqrt.UseVisualStyleBackColor = false;
+            this.btnSqrt.Click += new System.EventHandler(this.btnSqrt_Click);
+            // 
+            // btnSquared
+            // 
+            this.btnSquared.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSquared.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnSquared.BackColor = System.Drawing.SystemColors.Control;
+            this.btnSquared.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSquared.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnSquared.FlatAppearance.BorderSize = 0;
+            this.btnSquared.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSquared.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSquared.Location = new System.Drawing.Point(114, 135);
+            this.btnSquared.Name = "btnSquared";
+            this.btnSquared.Size = new System.Drawing.Size(48, 53);
+            this.btnSquared.TabIndex = 22;
+            this.btnSquared.Text = "x²";
+            this.btnSquared.UseVisualStyleBackColor = false;
+            this.btnSquared.Click += new System.EventHandler(this.btnSquared_Click);
+            // 
+            // btnInverse
+            // 
+            this.btnInverse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnInverse.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnInverse.BackColor = System.Drawing.SystemColors.Control;
+            this.btnInverse.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInverse.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnInverse.FlatAppearance.BorderSize = 0;
+            this.btnInverse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInverse.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInverse.Location = new System.Drawing.Point(168, 135);
+            this.btnInverse.Name = "btnInverse";
+            this.btnInverse.Size = new System.Drawing.Size(48, 53);
+            this.btnInverse.TabIndex = 21;
+            this.btnInverse.Text = "1/X";
+            this.btnInverse.UseVisualStyleBackColor = false;
+            this.btnInverse.Click += new System.EventHandler(this.btnInverse_Click);
+            // 
+            // btnPercent
+            // 
+            this.btnPercent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnPercent.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnPercent.BackColor = System.Drawing.SystemColors.Control;
+            this.btnPercent.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPercent.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnPercent.FlatAppearance.BorderSize = 0;
+            this.btnPercent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPercent.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPercent.Location = new System.Drawing.Point(6, 135);
+            this.btnPercent.Name = "btnPercent";
+            this.btnPercent.Size = new System.Drawing.Size(48, 53);
+            this.btnPercent.TabIndex = 20;
+            this.btnPercent.Text = "%";
+            this.btnPercent.UseVisualStyleBackColor = false;
+            this.btnPercent.Click += new System.EventHandler(this.btnPercent_Click);
             // 
             // FormCalculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(226, 435);
+            this.ClientSize = new System.Drawing.Size(224, 479);
+            this.Controls.Add(this.btnSqrt);
+            this.Controls.Add(this.btnSquared);
             this.Controls.Add(this.currentOperation);
+            this.Controls.Add(this.btnInverse);
             this.Controls.Add(this.lblDisplay);
+            this.Controls.Add(this.btnPercent);
             this.Controls.Add(this.pnlButtons);
             this.KeyPreview = true;
             this.Name = "FormCalculator";
             this.Text = "Calculator";
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FormCalculator_KeyPress);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormCalculator_KeyUp);
             this.pnlButtons.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -529,6 +611,10 @@
         private System.Windows.Forms.Button btnPlusMinus;
         private System.Windows.Forms.Label lblDisplay;
         private System.Windows.Forms.Label currentOperation;
+        private System.Windows.Forms.Button btnSqrt;
+        private System.Windows.Forms.Button btnSquared;
+        private System.Windows.Forms.Button btnInverse;
+        private System.Windows.Forms.Button btnPercent;
     }
 }
 

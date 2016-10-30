@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Drawing;
 using System.Globalization;
-using System.Threading;
 using System.Windows.Forms;
 using NCalc;
+
 
 namespace Calculator
 {
@@ -13,11 +12,11 @@ namespace Calculator
         public FormCalculator()
         {
             InitializeComponent();
-                       
+
         }
 
         #region Calculator Button Clicks
-        
+
         private void btnOne_Click(object sender, EventArgs e)
         {
             DisplayText("1");
@@ -78,7 +77,7 @@ namespace Calculator
 
         private void btnClear_Click_1(object sender, EventArgs e) // clears screen and current calculation
         {
-            lblDisplay.Text = string.Empty;
+            lblDisplay.Text = '0'.ToString();
             _calculation = string.Empty;
             currentOperation.Text = string.Empty;
         }
@@ -86,7 +85,7 @@ namespace Calculator
 
         private void btnClearEntry_Click(object sender, EventArgs e) // clears what's on screen
         {
-            lblDisplay.Text = string.Empty;
+            lblDisplay.Text = '0'.ToString();
         }
 
         private void btnPlus_Click(object sender, EventArgs e)
@@ -114,9 +113,11 @@ namespace Calculator
         }
         private void btnPlusMinus_Click(object sender, EventArgs e)
         {
-            var temp = Convert.ToDouble(lblDisplay.Text); // changes string to a number to be tested if negative.
-            if (_numIsNegative || temp <= 0) // testing if negative is was already added or the number itself is negative
+            //*
+            //NOTE: Possible Enter key error here.
+            if (_numIsNegative)
             {
+                var temp = Convert.ToDouble(lblDisplay.Text); // changes string to a number.
                 lblDisplay.Text = Convert.ToString(Math.Abs(temp), CultureInfo.CurrentCulture); // converts negative number back to positive
                 _numIsNegative = false;
             }
@@ -125,6 +126,8 @@ namespace Calculator
                 _numIsNegative = true;
                 lblDisplay.Text = Negative + lblDisplay.Text; // makes number negative
             }
+
+            //*/
         }
 
         private void btnEqual_Click(object sender, EventArgs e)
@@ -135,8 +138,52 @@ namespace Calculator
         {
             if (!lblDisplay.Text.Contains(".")) // checks to see if decmail exist
             {
-                lblDisplay.Text += ".";
+                lblDisplay.Text += @".";
+
+
             }
+        }
+
+        private void btnPercent_Click(object sender, EventArgs e)
+        {
+            //TODO: Fix percentage for 2+ digits
+            if (string.IsNullOrEmpty(_calculation)) return;
+
+            var strTemp = _calculation;
+            strTemp = strTemp.Trim(); // removes leading space
+            strTemp = strTemp.Trim().Remove(strTemp.Length - 1); // removes operator sign
+            var percent = 0.01 * Convert.ToDouble(lblDisplay.Text); // makes percentange into a decimal
+
+            var result = new Expression(strTemp); // evaluates the expression up to that point
+            var strTemp2 = result.Evaluate().ToString(); // turns the answer into a string
+
+            var result2 = new Expression(strTemp2 + "*" + percent);
+            _calculation = currentOperation.Text += result2.Evaluate().ToString(); // add to current operation text
+
+        }
+
+        private void btnSqrt_Click(object sender, EventArgs e)
+        {
+            var result = new Expression($"Sqrt({lblDisplay.Text})");
+            currentOperation.Text += $@"Sqrt({lblDisplay.Text})";
+            lblDisplay.Text = result.Evaluate().ToString();
+        }
+
+        private void btnSquared_Click(object sender, EventArgs e)
+        {
+            var sqr = Convert.ToDouble(lblDisplay.Text);
+            sqr = sqr*sqr;
+            var result = new Expression(sqr.ToString(CultureInfo.CurrentCulture));
+            currentOperation.Text += $@"Sqr({lblDisplay.Text})";
+            lblDisplay.Text = result.Evaluate().ToString();
+        }
+
+        private void btnInverse_Click(object sender, EventArgs e)
+        {
+            var inverse = "1/" + lblDisplay.Text;
+            var result = new Expression(inverse);
+            currentOperation.Text += $@"1/({lblDisplay.Text})";
+            lblDisplay.Text = result.Evaluate().ToString();
         }
 
         #endregion
@@ -147,42 +194,47 @@ namespace Calculator
         {
         }
 
-        private void FormCalculator_KeyPress(object sender, KeyPressEventArgs e)
+        private void FormCalculator_KeyUp(object sender, KeyEventArgs e)
         {
-            Color color = new Color();
-            int delay = 0;
+            //var color = new Color();
+            //var delay = 0;
 
-            if (e.KeyChar == (char) Keys.Enter || e.KeyChar == (char) Keys.Return)
-            {
-                MessageBox.Show("You are here");
-                btnEqual.PerformClick();
-                e.Handled = true;
-                
-            }
-                
+            //if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Return)
+            //{
+            //    MessageBox.Show("You are here");
+            //    btnEqual.PerformClick();
+            //    e.Handled = true;
 
-            switch (e.KeyChar) // value of the key presses from the keyboard
+            //}
+
+
+            switch (e.KeyCode) // value of the key presses from the keyboard
             {
-                
-                case (char) 42:
-                    //_mathOperator = '*';
-                    //AddToCalculation(_mathOperator.ToString());
-                    //e.Handled = true;
-                   btnMultiply.PerformClick();
+                //TODO: Fix Enter Key Issue
+
+                case Keys.Return:
+                    btnEqual.PerformClick();
+                    e.Handled = true;
                     break;
-                case (char) 43:
+                case Keys.Multiply:
+                    btnMultiply.PerformClick();
+                    break;
+                case Keys.Add:
                     btnPlus.PerformClick();
                     e.Handled = true;
                     break;
-                case (char) 45:
+
+                case Keys.Subtract:
+                case Keys.OemMinus:
                     btnMinus.PerformClick();
                     e.Handled = true;
                     break;
-                case (char) 47:
+                case Keys.Divide:
                     btnDivide.PerformClick();
                     e.Handled = true;
                     break;
-                case (char) 48:
+                case Keys.D0:
+                case Keys.NumPad0:
                     /*
                     color = btnZero.BackColor;
                     btnZero.BackColor = Color.Gray;
@@ -192,55 +244,64 @@ namespace Calculator
                     btnZero.PerformClick();
                     e.Handled = true;
                     break;
-                case (char) 49:
+                case Keys.D1:
+                case Keys.NumPad1:
                     btnOne.PerformClick();
                     e.Handled = true;
                     break;
-                case (char) 50:
+                case Keys.D2:
+                case Keys.NumPad2:
                     btnTwo.PerformClick();
                     e.Handled = true;
                     break;
-                case (char) 51:
+                case Keys.D3:
+                case Keys.NumPad3:
                     btnThree.PerformClick();
                     e.Handled = true;
                     break;
-                case (char) 52:
+                case Keys.D4:
+                case Keys.NumPad4:
                     btnFour.PerformClick();
                     e.Handled = true;
                     break;
-                case (char) 53:
+                case Keys.D5:
+                case Keys.NumPad5:
                     btnFive.PerformClick();
                     e.Handled = true;
                     break;
-                case (char) 54:
+                case Keys.D6:
+                case Keys.NumPad6:
                     btnSix.PerformClick();
                     e.Handled = true;
                     break;
-                case (char) 55:
+                case Keys.D7:
+                case Keys.NumPad7:
                     btnSeven.PerformClick();
                     e.Handled = true;
                     break;
-                case (char) 56:
+                case Keys.D8:
+                case Keys.NumPad8:
                     bntEight.PerformClick();
                     e.Handled = true;
                     break;
-                case (char) 57:
+                case Keys.D9:
+                case Keys.NumPad9:
                     btnNine.PerformClick();
                     e.Handled = true;
                     break;
-                case (char) Keys.Back:
+                case Keys.Back:
                     btnBackspace.PerformClick();
                     break;
-                case (char)Keys.Delete:
+                case Keys.Delete:
                     btnClearEntry.PerformClick();
                     break;
-                case (char)Keys.Decimal:
+                case Keys.Decimal:
                     btnDecimal.PerformClick();
                     break;
-                default:
-                    e.Handled = true;
-                    break;
+
             }
         }
+
+        
     }
 }
