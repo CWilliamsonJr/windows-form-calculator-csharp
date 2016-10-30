@@ -146,20 +146,18 @@ namespace Calculator
 
         private void btnPercent_Click(object sender, EventArgs e)
         {
-            //TODO: Fix percentage for 2+ digits
+
             if (string.IsNullOrEmpty(_calculation)) return;
 
             var strTemp = _calculation;
             strTemp = strTemp.Trim(); // removes leading space
-            strTemp = strTemp.Trim().Remove(strTemp.Length - 1); // removes operator sign
+            strTemp = strTemp.Remove(strTemp.Length - 1); // removes operator sign
             var percent = 0.01 * Convert.ToDouble(lblDisplay.Text); // makes percentange into a decimal
 
-            var result = new Expression(strTemp); // evaluates the expression up to that point
-            var strTemp2 = result.Evaluate().ToString(); // turns the answer into a string
+            var result = new Expression($"({strTemp}) * {percent}"); // evaluates the expression
 
-            var result2 = new Expression(strTemp2 + "*" + percent);
-            _calculation = currentOperation.Text += result2.Evaluate().ToString(); // add to current operation text
-
+            currentOperation.Text += result.Evaluate().ToString(); // add to current operation text
+            lblDisplay.Text = result.Evaluate().ToString();
         }
 
         private void btnSqrt_Click(object sender, EventArgs e)
@@ -172,7 +170,7 @@ namespace Calculator
         private void btnSquared_Click(object sender, EventArgs e)
         {
             var sqr = Convert.ToDouble(lblDisplay.Text);
-            sqr = sqr*sqr;
+            sqr = sqr * sqr;
             var result = new Expression(sqr.ToString(CultureInfo.CurrentCulture));
             currentOperation.Text += $@"Sqr({lblDisplay.Text})";
             lblDisplay.Text = result.Evaluate().ToString();
@@ -211,11 +209,11 @@ namespace Calculator
             switch (e.KeyCode) // value of the key presses from the keyboard
             {
                 //TODO: Fix Enter Key Issue
-
+                //*
                 case Keys.Return:
                     btnEqual.PerformClick();
                     e.Handled = true;
-                    break;
+                    break;//*/
                 case Keys.Multiply:
                     btnMultiply.PerformClick();
                     break;
@@ -223,7 +221,6 @@ namespace Calculator
                     btnPlus.PerformClick();
                     e.Handled = true;
                     break;
-
                 case Keys.Subtract:
                 case Keys.OemMinus:
                     btnMinus.PerformClick();
@@ -302,6 +299,6 @@ namespace Calculator
             }
         }
 
-        
+
     }
 }
