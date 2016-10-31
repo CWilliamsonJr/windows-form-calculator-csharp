@@ -52,13 +52,14 @@ namespace Calculator
 
         private void DoCalculation()
         {
-            if (String.IsNullOrEmpty(lblDisplay.Text)) return; // returns if there is nothing to calculate, stops program from crashing.
+            if (string.IsNullOrEmpty(_mathOperator.ToString())) return; // stops math from happening if enter is hit when nothing has been entered.
+
             if (String.IsNullOrEmpty(_calculation))
             {
+                if (_mathOperator.ToString() == string.Empty) return; // stops math from happening if enter is hit when nothing has been entered.
                 _calculation = _lastNumberCalculated + _mathOperator + _lastNumberEntered; // makes new math expression to be calculated based on the last operation.
                 var result = new Expression(_calculation);
                 _lastNumberCalculated = lblDisplay.Text = result.Evaluate().ToString();
-
                 _calculation = String.Empty;
             }
             else

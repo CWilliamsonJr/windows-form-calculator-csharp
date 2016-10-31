@@ -563,6 +563,7 @@
             this.KeyPreview = true;
             this.Name = "FormCalculator";
             this.Text = "Calculator";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormCalculator_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormCalculator_KeyUp);
             this.pnlButtons.ResumeLayout(false);
             this.ResumeLayout(false);
