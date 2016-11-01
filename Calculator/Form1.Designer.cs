@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCalculator));
             this.pnlButtons = new System.Windows.Forms.Panel();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnBackspace = new System.Windows.Forms.Button();
@@ -55,7 +56,12 @@
             this.btnSquared = new System.Windows.Forms.Button();
             this.btnInverse = new System.Windows.Forms.Button();
             this.btnPercent = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pnlHistory = new System.Windows.Forms.Panel();
+            this.lblHistory = new System.Windows.Forms.Label();
             this.pnlButtons.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlHistory.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlButtons
@@ -66,6 +72,7 @@
             this.pnlButtons.AutoSize = true;
             this.pnlButtons.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pnlButtons.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.pnlButtons.Controls.Add(this.pnlHistory);
             this.pnlButtons.Controls.Add(this.btnClear);
             this.pnlButtons.Controls.Add(this.btnBackspace);
             this.pnlButtons.Controls.Add(this.btnDivide);
@@ -88,7 +95,7 @@
             this.pnlButtons.Controls.Add(this.btnNegative);
             this.pnlButtons.Location = new System.Drawing.Point(0, 188);
             this.pnlButtons.Name = "pnlButtons";
-            this.pnlButtons.Size = new System.Drawing.Size(221, 292);
+            this.pnlButtons.Size = new System.Drawing.Size(221, 298);
             this.pnlButtons.TabIndex = 0;
             // 
             // btnClear
@@ -101,7 +108,7 @@
             this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(62, 3);
+            this.btnClear.Location = new System.Drawing.Point(62, 9);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(48, 53);
             this.btnClear.TabIndex = 19;
@@ -119,7 +126,7 @@
             this.btnBackspace.FlatAppearance.BorderSize = 0;
             this.btnBackspace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBackspace.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBackspace.Location = new System.Drawing.Point(116, 1);
+            this.btnBackspace.Location = new System.Drawing.Point(116, 7);
             this.btnBackspace.Name = "btnBackspace";
             this.btnBackspace.Size = new System.Drawing.Size(48, 53);
             this.btnBackspace.TabIndex = 18;
@@ -137,7 +144,7 @@
             this.btnDivide.FlatAppearance.BorderSize = 0;
             this.btnDivide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDivide.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDivide.Location = new System.Drawing.Point(170, 1);
+            this.btnDivide.Location = new System.Drawing.Point(170, 7);
             this.btnDivide.Name = "btnDivide";
             this.btnDivide.Size = new System.Drawing.Size(48, 53);
             this.btnDivide.TabIndex = 17;
@@ -155,7 +162,7 @@
             this.btnClearEntry.FlatAppearance.BorderSize = 0;
             this.btnClearEntry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClearEntry.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClearEntry.Location = new System.Drawing.Point(8, 3);
+            this.btnClearEntry.Location = new System.Drawing.Point(8, 9);
             this.btnClearEntry.Name = "btnClearEntry";
             this.btnClearEntry.Size = new System.Drawing.Size(48, 53);
             this.btnClearEntry.TabIndex = 16;
@@ -173,7 +180,7 @@
             this.bntEight.FlatAppearance.BorderSize = 0;
             this.bntEight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bntEight.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bntEight.Location = new System.Drawing.Point(62, 59);
+            this.bntEight.Location = new System.Drawing.Point(62, 65);
             this.bntEight.Name = "bntEight";
             this.bntEight.Size = new System.Drawing.Size(48, 53);
             this.bntEight.TabIndex = 15;
@@ -191,7 +198,7 @@
             this.btnNine.FlatAppearance.BorderSize = 0;
             this.btnNine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNine.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNine.Location = new System.Drawing.Point(116, 59);
+            this.btnNine.Location = new System.Drawing.Point(116, 65);
             this.btnNine.Name = "btnNine";
             this.btnNine.Size = new System.Drawing.Size(48, 53);
             this.btnNine.TabIndex = 14;
@@ -209,7 +216,7 @@
             this.btnMultiply.FlatAppearance.BorderSize = 0;
             this.btnMultiply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMultiply.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMultiply.Location = new System.Drawing.Point(170, 59);
+            this.btnMultiply.Location = new System.Drawing.Point(170, 65);
             this.btnMultiply.Name = "btnMultiply";
             this.btnMultiply.Size = new System.Drawing.Size(48, 53);
             this.btnMultiply.TabIndex = 13;
@@ -227,7 +234,7 @@
             this.btnSeven.FlatAppearance.BorderSize = 0;
             this.btnSeven.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSeven.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeven.Location = new System.Drawing.Point(8, 59);
+            this.btnSeven.Location = new System.Drawing.Point(8, 65);
             this.btnSeven.Name = "btnSeven";
             this.btnSeven.Size = new System.Drawing.Size(48, 53);
             this.btnSeven.TabIndex = 12;
@@ -245,7 +252,7 @@
             this.btnFive.FlatAppearance.BorderSize = 0;
             this.btnFive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFive.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFive.Location = new System.Drawing.Point(62, 118);
+            this.btnFive.Location = new System.Drawing.Point(62, 124);
             this.btnFive.Name = "btnFive";
             this.btnFive.Size = new System.Drawing.Size(48, 53);
             this.btnFive.TabIndex = 11;
@@ -263,7 +270,7 @@
             this.btnSix.FlatAppearance.BorderSize = 0;
             this.btnSix.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSix.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSix.Location = new System.Drawing.Point(116, 118);
+            this.btnSix.Location = new System.Drawing.Point(116, 124);
             this.btnSix.Name = "btnSix";
             this.btnSix.Size = new System.Drawing.Size(48, 53);
             this.btnSix.TabIndex = 10;
@@ -281,7 +288,7 @@
             this.btnMinus.FlatAppearance.BorderSize = 0;
             this.btnMinus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinus.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMinus.Location = new System.Drawing.Point(170, 118);
+            this.btnMinus.Location = new System.Drawing.Point(170, 124);
             this.btnMinus.Name = "btnMinus";
             this.btnMinus.Size = new System.Drawing.Size(48, 53);
             this.btnMinus.TabIndex = 9;
@@ -299,7 +306,7 @@
             this.btnFour.FlatAppearance.BorderSize = 0;
             this.btnFour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFour.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFour.Location = new System.Drawing.Point(8, 118);
+            this.btnFour.Location = new System.Drawing.Point(8, 124);
             this.btnFour.Name = "btnFour";
             this.btnFour.Size = new System.Drawing.Size(48, 53);
             this.btnFour.TabIndex = 8;
@@ -317,7 +324,7 @@
             this.btnTwo.FlatAppearance.BorderSize = 0;
             this.btnTwo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTwo.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTwo.Location = new System.Drawing.Point(62, 177);
+            this.btnTwo.Location = new System.Drawing.Point(62, 183);
             this.btnTwo.Name = "btnTwo";
             this.btnTwo.Size = new System.Drawing.Size(48, 53);
             this.btnTwo.TabIndex = 7;
@@ -335,7 +342,7 @@
             this.btnThree.FlatAppearance.BorderSize = 0;
             this.btnThree.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThree.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThree.Location = new System.Drawing.Point(116, 177);
+            this.btnThree.Location = new System.Drawing.Point(116, 183);
             this.btnThree.Name = "btnThree";
             this.btnThree.Size = new System.Drawing.Size(48, 53);
             this.btnThree.TabIndex = 6;
@@ -353,7 +360,7 @@
             this.btnPlus.FlatAppearance.BorderSize = 0;
             this.btnPlus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPlus.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlus.Location = new System.Drawing.Point(170, 177);
+            this.btnPlus.Location = new System.Drawing.Point(170, 183);
             this.btnPlus.Name = "btnPlus";
             this.btnPlus.Size = new System.Drawing.Size(48, 53);
             this.btnPlus.TabIndex = 5;
@@ -371,7 +378,7 @@
             this.btnOne.FlatAppearance.BorderSize = 0;
             this.btnOne.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOne.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOne.Location = new System.Drawing.Point(8, 177);
+            this.btnOne.Location = new System.Drawing.Point(8, 183);
             this.btnOne.Name = "btnOne";
             this.btnOne.Size = new System.Drawing.Size(48, 53);
             this.btnOne.TabIndex = 4;
@@ -389,7 +396,7 @@
             this.btnZero.FlatAppearance.BorderSize = 0;
             this.btnZero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnZero.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnZero.Location = new System.Drawing.Point(62, 236);
+            this.btnZero.Location = new System.Drawing.Point(62, 242);
             this.btnZero.Name = "btnZero";
             this.btnZero.Size = new System.Drawing.Size(48, 53);
             this.btnZero.TabIndex = 3;
@@ -407,7 +414,7 @@
             this.btnDecimal.FlatAppearance.BorderSize = 0;
             this.btnDecimal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDecimal.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDecimal.Location = new System.Drawing.Point(116, 236);
+            this.btnDecimal.Location = new System.Drawing.Point(116, 242);
             this.btnDecimal.Name = "btnDecimal";
             this.btnDecimal.Size = new System.Drawing.Size(48, 53);
             this.btnDecimal.TabIndex = 2;
@@ -427,7 +434,7 @@
             this.btnEqual.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
             this.btnEqual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEqual.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEqual.Location = new System.Drawing.Point(170, 236);
+            this.btnEqual.Location = new System.Drawing.Point(170, 242);
             this.btnEqual.Name = "btnEqual";
             this.btnEqual.Size = new System.Drawing.Size(48, 53);
             this.btnEqual.TabIndex = 1;
@@ -445,7 +452,7 @@
             this.btnNegative.FlatAppearance.BorderSize = 0;
             this.btnNegative.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNegative.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNegative.Location = new System.Drawing.Point(3, 236);
+            this.btnNegative.Location = new System.Drawing.Point(3, 242);
             this.btnNegative.Name = "btnNegative";
             this.btnNegative.Size = new System.Drawing.Size(48, 53);
             this.btnNegative.TabIndex = 0;
@@ -466,7 +473,7 @@
             // currentOperation
             // 
             this.currentOperation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.currentOperation.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.currentOperation.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.currentOperation.Location = new System.Drawing.Point(5, 11);
             this.currentOperation.Name = "currentOperation";
             this.currentOperation.Size = new System.Drawing.Size(213, 23);
@@ -484,7 +491,7 @@
             this.btnSqrt.FlatAppearance.BorderSize = 0;
             this.btnSqrt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSqrt.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSqrt.Location = new System.Drawing.Point(60, 135);
+            this.btnSqrt.Location = new System.Drawing.Point(60, 122);
             this.btnSqrt.Name = "btnSqrt";
             this.btnSqrt.Size = new System.Drawing.Size(48, 53);
             this.btnSqrt.TabIndex = 23;
@@ -502,7 +509,7 @@
             this.btnSquared.FlatAppearance.BorderSize = 0;
             this.btnSquared.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSquared.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSquared.Location = new System.Drawing.Point(114, 135);
+            this.btnSquared.Location = new System.Drawing.Point(114, 122);
             this.btnSquared.Name = "btnSquared";
             this.btnSquared.Size = new System.Drawing.Size(48, 53);
             this.btnSquared.TabIndex = 22;
@@ -520,7 +527,7 @@
             this.btnInverse.FlatAppearance.BorderSize = 0;
             this.btnInverse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInverse.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInverse.Location = new System.Drawing.Point(168, 135);
+            this.btnInverse.Location = new System.Drawing.Point(168, 122);
             this.btnInverse.Name = "btnInverse";
             this.btnInverse.Size = new System.Drawing.Size(48, 53);
             this.btnInverse.TabIndex = 21;
@@ -538,7 +545,7 @@
             this.btnPercent.FlatAppearance.BorderSize = 0;
             this.btnPercent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPercent.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPercent.Location = new System.Drawing.Point(6, 135);
+            this.btnPercent.Location = new System.Drawing.Point(6, 122);
             this.btnPercent.Name = "btnPercent";
             this.btnPercent.Size = new System.Drawing.Size(48, 53);
             this.btnPercent.TabIndex = 20;
@@ -546,13 +553,47 @@
             this.btnPercent.UseVisualStyleBackColor = false;
             this.btnPercent.Click += new System.EventHandler(this.btnPercent_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(185, 42);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(31, 25);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 27;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // pnlHistory
+            // 
+            this.pnlHistory.AutoScroll = true;
+            this.pnlHistory.Controls.Add(this.lblHistory);
+            this.pnlHistory.Location = new System.Drawing.Point(12, 39);
+            this.pnlHistory.Name = "pnlHistory";
+            this.pnlHistory.Size = new System.Drawing.Size(201, 256);
+            this.pnlHistory.TabIndex = 28;
+            this.pnlHistory.Visible = false;
+            // 
+            // lblHistory
+            // 
+            this.lblHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblHistory.AutoSize = true;
+            this.lblHistory.Location = new System.Drawing.Point(2, 4);
+            this.lblHistory.MaximumSize = new System.Drawing.Size(201, 0);
+            this.lblHistory.MinimumSize = new System.Drawing.Size(195, 0);
+            this.lblHistory.Name = "lblHistory";
+            this.lblHistory.Size = new System.Drawing.Size(195, 13);
+            this.lblHistory.TabIndex = 0;
+            this.lblHistory.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // FormCalculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(224, 479);
+            this.ClientSize = new System.Drawing.Size(225, 479);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnSqrt);
             this.Controls.Add(this.btnSquared);
             this.Controls.Add(this.currentOperation);
@@ -560,12 +601,16 @@
             this.Controls.Add(this.lblDisplay);
             this.Controls.Add(this.btnPercent);
             this.Controls.Add(this.pnlButtons);
+            this.DoubleBuffered = true;
             this.KeyPreview = true;
             this.Name = "FormCalculator";
             this.Text = "Calculator";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormCalculator_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormCalculator_KeyUp);
             this.pnlButtons.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnlHistory.ResumeLayout(false);
+            this.pnlHistory.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -600,6 +645,9 @@
         private System.Windows.Forms.Button btnSquared;
         private System.Windows.Forms.Button btnInverse;
         private System.Windows.Forms.Button btnPercent;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel pnlHistory;
+        private System.Windows.Forms.Label lblHistory;
     }
 }
 

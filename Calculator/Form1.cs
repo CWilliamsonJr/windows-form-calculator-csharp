@@ -9,10 +9,10 @@ namespace Calculator
 {
     public partial class FormCalculator : Form
     {
-
         public FormCalculator()
         {
             InitializeComponent();
+            
         }
 
         #region Calculator Button Clicks
@@ -158,7 +158,7 @@ namespace Calculator
 
             currentOperation.Text += result.Evaluate().ToString(); // add to current operation text
             lblDisplay.Text = result.Evaluate().ToString();
-            _skip = true;
+            _canSkip = true;
         }
 
         private void btnSqrt_Click(object sender, EventArgs e)
@@ -166,7 +166,7 @@ namespace Calculator
             var result = new Expression($"Sqrt({lblDisplay.Text})");
             currentOperation.Text += $@"sqrt({lblDisplay.Text})"; // adds square root to the current operation display
             lblDisplay.Text = result.Evaluate().ToString(); // posts result to the screen
-            _skip = true;
+            _canSkip = true;
         }
 
         private void btnSquared_Click(object sender, EventArgs e)
@@ -176,7 +176,7 @@ namespace Calculator
             var result = new Expression(sqr);
             currentOperation.Text += $@"sqr({lblDisplay.Text})";
             lblDisplay.Text = result.Evaluate().ToString();
-            _skip = true;
+            _canSkip = true;
         }
 
         private void btnInverse_Click(object sender, EventArgs e)
@@ -185,7 +185,7 @@ namespace Calculator
             var result = new Expression(inverse);
             currentOperation.Text += $@"1/({lblDisplay.Text})";
             lblDisplay.Text = result.Evaluate().ToString();
-            _skip = true;
+            _canSkip = true;
         }
 
         #endregion
@@ -303,7 +303,7 @@ namespace Calculator
             switch (e.KeyCode) // value of the key presses from the keyboard
             {
                 //TODO: Fix Enter Key Issue
-                
+                    
                 case Keys.Return:
                     btnEqual.BackColor = Color.CornflowerBlue;
                     e.Handled = true;
@@ -382,6 +382,19 @@ namespace Calculator
                 case Keys.Decimal:
                     btnDecimal.BackColor = Color.LightGray;
                     break;
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            //max 467 245min
+            if (pnlHistory.Visible)
+            {
+                pnlHistory.Visible = false;
+            }
+            else
+            {
+                pnlHistory.Visible = true;
             }
         }
     }
